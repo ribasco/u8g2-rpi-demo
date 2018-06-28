@@ -3,8 +3,6 @@ set(RPI_TOOLCHAIN_PATH "${TOOLS_DIR_PATH}/rpi" CACHE PATH "The path of the Raspb
 
 message(STATUS "[FIND-TOOLCHAIN] Search Path = ${RPI_TOOLCHAIN_PATH}")
 
-#-DRPI_TOOLCHAIN_PATH=/home/raffy/projects/rpi-tools
-
 # Check if the path exists, if it doesn't, download a copy to the source directory
 if (NOT EXISTS ${RPI_TOOLCHAIN_PATH})
     message(STATUS "[FIND-TOOLCHAIN] Downloading toolchain to ${TOOLS_DIR_PATH}/toolchain.zip")
