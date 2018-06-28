@@ -20,17 +20,23 @@ The project includes a convenience utility for building on the Raspberry Pi or f
 
 To compile on the Raspberry Pi, simply run the compile script.
 
-	./compile.sh
+```bash
+./compile.sh
+```
 
 CMake will automatically download the required libraries (wiring pi and u8g2) if it is not found on the target system.
 
 If you are compiling from the Linux platform, you need the Raspberry Pi toolchain (See Project Dependencies). If this is not yet in your system then CMake will try and download them for you. If you happen to have the toolchain already installed, then you can pass the existing path to the compile script.
 
-	./compile.sh -t <path-of-the-rpi-toolchain>
+```bash
+./compile.sh -t <path-of-the-rpi-toolchain>
+```
 
 By default, the cmake builds the binaries with debug information. If you need to compile without debug information then you can specify the build type it in the compile script (release or debug)
 
-	./compile.sh -b<release/debug>
+```bash
+./compile.sh -b<release/debug>
+```
 
 The binary output can be found in the
 
