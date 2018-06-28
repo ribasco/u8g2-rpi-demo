@@ -18,7 +18,7 @@ This project uses a custom SPI library for communication with the display, if yo
 
 # Build Instructions
 
-The project includes a convenience utility for building on the Raspberry Pi or for cross-compiling from a Linux operating system.
+The project comes with a utility script for compiling on the Raspberry Pi or for cross-compiling from a Linux operating system. Cross-compilation will automatically take place if the script has detected it is not running on the target platform.
 
 To compile on the Raspberry Pi, simply run the compile script.
 
@@ -28,7 +28,7 @@ To compile on the Raspberry Pi, simply run the compile script.
 
 CMake will automatically download the required libraries (wiring pi and u8g2) if it is not found on the target system.
 
-If you are compiling from the Linux platform, you need the Raspberry Pi toolchain (See Project Dependencies). If this is not yet in your system then CMake will try and download them for you. If you happen to have the toolchain already installed, then you can pass the existing path to the compile script.
+If you are compiling from the Linux platform, you need the Raspberry Pi toolchain (See Project Dependencies). If this is not yet installed in your system then CMake will try and download them for you. If you happen to have the toolchain already installed, then you can pass the existing path to the compile script.
 
 ```bash
 ./compile.sh -t <path-of-the-rpi-toolchain>
@@ -50,4 +50,31 @@ The binary output can be found in the following path:
 - I2C (Not yet supported)
 
 
+# Sample Usage
 
+```c++
+u8g2_t u8g2;
+
+int main() {
+    //1) Initialize the Struct containing SPI PIN details
+    u8g2_rpi_hal_t u8g2_rpi_hal = {14 /*CLOCK/EN*/, 12 /*MOSI/RW*/, 10 /*CS/RS*/};
+    u8g2_rpi_hal_init(u8g2_rpi_hal);
+
+    //2) Pass the byte and gpio callbacks to the display setup procedure
+    u8g2_Setup_st7920_s_128x64_f(&u8g2, U8G2_R2, cb_byte_spi_hw, cb_gpio_delay_rpi);
+
+    //3) Initialize the display
+    u8g2_InitDisplay(&u8g2);
+    u8g2_SetPowerSave(&u8g2, 0);
+    u8g2_ClearDisplay(&u8g2);
+
+
+    //4) Do whatever you want
+    u8g2_DrawStr(u8g2, 10, 32, "Hello");
+
+    //Flush the buffer
+    u8g2_SendBuffer(u8g2);
+
+    return 0;
+}
+```
