@@ -6,7 +6,7 @@ This project serves as an example of how to build and compile a C++ project usin
 
 The display used for this demo is **ST7920**. If you would like to use a different display, you could easily modify the source and replace the setup/constructor definitions.
 
-This project use it's own SPI library for communication between the display, if you are wondering why that is considering Wiring Pi already provides such methods, please read the issue [here](https://github.com/olikraus/u8g2/issues/457).
+This project uses a custom SPI library for communication with the display, if you are wondering why that is considering Wiring Pi already provides such methods, please read the issue [here](https://github.com/olikraus/u8g2/issues/457).
 
 # Project Dependencies
 
