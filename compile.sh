@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-usage() { echo "Usage: $0 -t <rpi tools path> -b <build-type>" 1>&2; exit 1; }
+usage() { echo "Usage: $0 -t <rpi tools path> -b <Debug/Release>" 1>&2; exit 1; }
 
 function is_installed {
   local return_=1
