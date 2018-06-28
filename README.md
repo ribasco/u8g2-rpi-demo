@@ -40,7 +40,7 @@ By default, the cmake builds the binaries with debug information. If you need to
 ./compile.sh -b<release/debug>
 ```
 
-The binary output can be found in the
+The binary output can be found in the following path:
 
 	<project_dir>/build/arm/<debug|release>/bin
 
