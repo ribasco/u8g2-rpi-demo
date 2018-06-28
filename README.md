@@ -1,5 +1,7 @@
 # Introduction
 
+![ST7920 using U8G2 on Raspberry Pi Demo ](demo.gif  "ST7920 using U8G2 on Raspberry Pi Demo ")
+
 This project serves as an example of how to build and compile a C++ project using U8G2 and Wiring Pi library on the Raspberry Pi. CMake is used as the primary build tool with support for cross-compilation.
 
 The display used for this demo is **ST7920**. If you would like to use a different display, you could easily modify the source and replace the setup/constructor definitions.
@@ -41,3 +43,11 @@ By default, the cmake builds the binaries with debug information. If you need to
 The binary output can be found in the
 
 	<project_dir>/build/arm/<debug|release>/bin
+
+# Supported Features
+
+- SPI Hardware/Software implementations
+- I2C (Not yet supported)
+
+
+
