@@ -1,12 +1,12 @@
-message(STATUS "[WIRING-PI] Downloading WiringPi")
-message(STATUS "[WIRING-PI] SOURCE_DIR = ${CMAKE_SOURCE_DIR}/lib/wiringPi")
-
 set(CMAKE_INSTALL_PREFIX ${PROJECT_BINARY_DIR}/install/wiringPi)
 set(WIRINGPI_DIR ${LIB_DIR}/wiringPi)
 
 # Setup wiring pi library
 if (NOT EXISTS ${WIRINGPI_DIR} OR (NOT EXISTS ${WIRINGPI_DIR}/VERSION))
     message(STATUS "[WIRING-PI] Not yet existing: ${WIRINGPI_DIR}, Working directory: ${CMAKE_SOURCE_DIR}")
+    message(STATUS "[WIRING-PI] Downloading WiringPi")
+    message(STATUS "[WIRING-PI] SOURCE_DIR = ${CMAKE_SOURCE_DIR}/lib/wiringPi")
+
     file(DOWNLOAD https://github.com/ribasco/wiringPi/archive/master.zip ${LIB_DIR}/wiringPi.zip SHOW_PROGRESS)
 
     if (NOT EXISTS ${LIB_DIR}/wiringPi.zip)
