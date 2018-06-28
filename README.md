@@ -6,7 +6,7 @@ The display used for this demo is **ST7920**. If you would like to use a differe
 
 Click [here](https://github.com/olikraus/u8g2/issues/457)  for more details about the implementation.
 
-#Project Dependencies
+# Project Dependencies
 
 - [CMake 3.11.x ](https://github.com/Kitware/CMake)
 - [Raspberry Pi Tools](https://github.com/raspberrypi/tools)  (Required for Cross-Compilation)
