@@ -8,6 +8,8 @@ function is_installed {
   echo "$return_"
 }
 
+MAIN_DIR=$(pwd)
+
 # Check if CMAKE is installed
 if [ $(is_installed cmake) -ne "1" ]; then
     echo "========================================================================================================================================"
@@ -122,8 +124,20 @@ if [ ! -d "${BUILD_DIR}" ]; then
 fi
 
 cd ${BUILD_DIR}
+
+echo "==================================================="
+echo "Building Project Binaries"
+echo "==================================================="
+
 make
 if [ $? -ne 0 ]; then
     echo "ERROR: Build Failed"
     exit 1
+fi
+
+read -p "Would you like to run the example? [y/n] " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    ${MAIN_DIR}/${BUILD_DIR}/bin/u8g2demo
 fi
