@@ -37,7 +37,8 @@ uint8_t cb_byte_spi_hw(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr
                 return 0;
             }
 
-            //IMPORTANT: Make sure we reset the pin modes to activate the SPI hardware features!!!!
+            //IMPORTANT: Make sure we reset the pin modes
+            // to activate the SPI hardware features!!!!
             pinModeAlt(u8g2_rpi_hal.mosi, 0b100);
             pinModeAlt(u8g2_rpi_hal.clk, 0b100);
             pinModeAlt(u8g2_rpi_hal.cs, 0b100);
@@ -91,6 +92,31 @@ uint8_t cb_gpio_delay_rpi(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, U8X8_UNUSE
         default: {
             return 0;
         }
+    }
+    return 1;
+}
+
+uint8_t cb_byte_i2c_hw(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr) {
+    switch (msg) {
+        case U8X8_MSG_BYTE_INIT: {
+            //disable chip-select
+            //TODO: Add implementation
+            break;
+        }
+        case U8X8_MSG_BYTE_SEND: {
+            //TODO: Add implementation
+            break;
+        }
+        case U8X8_MSG_BYTE_START_TRANSFER: {
+            //TODO: Add implementation
+            break;
+        }
+        case U8X8_MSG_BYTE_END_TRANSFER: {
+            //TODO: Add implementation
+            break;
+        }
+        default:
+            return 0;
     }
     return 1;
 }

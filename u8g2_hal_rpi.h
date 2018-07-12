@@ -23,7 +23,12 @@ struct u8g2_rpi_hal_t {
 void u8g2_rpi_hal_init(u8g2_rpi_hal_t param);
 
 /**
- * Byte communications callback for SPI on the Raspberry Pi
+ * Byte communications callback for I2C Hardware on the Raspberry Pi
+ */
+uint8_t cb_byte_i2c_hw(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
+
+/**
+ * Byte communications callback for SPI Hardware on the Raspberry Pi
  */
 uint8_t cb_byte_spi_hw(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
 

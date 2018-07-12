@@ -48,3 +48,7 @@ target_link_libraries(u8g2demo ${WIRINGPI_LIBRARIES})
 if (TARGET wiringPi)
     add_dependencies(u8g2demo wiringPi)
 endif ()
+
+if (TARGET u8g2)
+    message(STATUS "Found U8G2 Target Library")
+endif ()
