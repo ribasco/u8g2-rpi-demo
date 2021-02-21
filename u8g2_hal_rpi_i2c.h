@@ -30,7 +30,7 @@ struct u8g2_hal_rpi_i2c_config_t {
 void u8g2_hal_rpi_i2c_set_config(u8g2_hal_rpi_i2c_config_t param);
 
 /**
- *  The function provides I2C Callback, conforms to `u8x8_msg_cb`, for both U8g2's `byte_cb` and `gpio_and_delay_cb`.
+ *  The function provides I2C Callback that conforms to U8g2's `u8x8_msg_cb` and applicable to both `byte_cb` and `gpio_and_delay_cb`.
  *  @brief I2C Callback
  */
 uint8_t u8g2_hal_rpi_i2c_cb(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
