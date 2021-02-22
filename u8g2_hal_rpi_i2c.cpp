@@ -3,7 +3,7 @@
  *  @brief U8g2 HAL implementation for Raspberry Pi I2C
  *  @file
  *  @author Tomoyuki Nakashima
-*/
+ */
 
 // u8g2 + external I/F of this file
 #include "u8g2_hal_rpi_i2c.h"

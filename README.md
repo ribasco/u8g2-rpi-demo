@@ -47,7 +47,7 @@ The binary output can be found in the following path:
 # Supported Features
 
 - SPI Hardware/Software implementations
-- I2C (Not yet supported)
+- I2C
 
 
 # Sample Usage

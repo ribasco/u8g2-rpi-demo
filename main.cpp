@@ -135,6 +135,9 @@ int main(int argc, char* argv[]) {
         // Setup U8g2 for display "ea_w128128" and controller "ssd1327" via I2C
         u8g2_Setup_ssd1327_i2c_ea_w128128_f(&u8g2, U8G2_R0, u8g2_hal_rpi_i2c_cb, u8g2_hal_rpi_i2c_cb);
 
+        // For better U8g2 performance, you can change I2C bus speed to 400 kb/s with the following configuration.
+        // /boot/config.txt: `dtparam=i2c_arm=on,i2c_arm_baudrate=400000`
+
         // for drawBannerText()
         scroll_text = "Raspberry Pi I2C";
         scroll_start_x = 128;

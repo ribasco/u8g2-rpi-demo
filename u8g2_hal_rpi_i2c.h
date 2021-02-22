@@ -3,7 +3,9 @@
  *  @brief U8g2 HAL implementation for Raspberry Pi I2C
  *  @file
  *  @author Tomoyuki Nakashima
-*/
+ *  @remark For better U8g2 performance, you can change I2C bus speed to 400 kb/s with the following configuration. <br>
+ *  /boot/config.txt: `dtparam=i2c_arm=on,i2c_arm_baudrate=400000`
+ */
 
 #ifndef U8G2DEMO_U8G2_HAL_RPI_I2C_H
 #define U8G2DEMO_U8G2_HAL_RPI_I2C_H
