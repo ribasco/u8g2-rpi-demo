@@ -21,6 +21,9 @@ void u8g2_rpi_hal_init(u8g2_rpi_hal_t param) {
 
 uint8_t cb_byte_spi_hw(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr) {
     switch (msg) {
+        case U8X8_MSG_BYTE_SET_DC:
+            u8x8_gpio_SetDC(u8x8, arg_int);
+            break;
         case U8X8_MSG_BYTE_SEND: {
             if (spi_write(U8G2_HAL_SPI_CHANNEL, (uint8_t *) arg_ptr, arg_int) < 1)
                 cerr << "Unable to send data" << endl;
@@ -66,6 +69,8 @@ uint8_t cb_gpio_delay_rpi(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, U8X8_UNUSE
             pinMode(u8g2_rpi_hal.mosi, OUTPUT);
             pinMode(u8g2_rpi_hal.clk, OUTPUT);
             pinMode(u8g2_rpi_hal.cs, OUTPUT);
+            pinMode(u8g2_rpi_hal.dc, OUTPUT);
+            pinMode(u8g2_rpi_hal.reset, OUTPUT);
             break;
         }
         case U8X8_MSG_DELAY_MILLI: {
@@ -87,6 +92,14 @@ uint8_t cb_gpio_delay_rpi(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, U8X8_UNUSE
         }
         case U8X8_MSG_GPIO_CS: {
             digitalWrite(u8g2_rpi_hal.cs, arg_int);
+            break;
+        }
+        case U8X8_MSG_GPIO_DC: {
+            digitalWrite(u8g2_rpi_hal.dc, arg_int);
+            break;
+        }
+        case U8X8_MSG_GPIO_RESET: {
+            digitalWrite(u8g2_rpi_hal.reset, arg_int);
             break;
         }
         default: {

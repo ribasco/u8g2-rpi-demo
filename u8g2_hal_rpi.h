@@ -14,7 +14,8 @@ struct u8g2_rpi_hal_t {
     int clk;  //lcd ENABLE pin
     int mosi; //lcd RW pin
     int cs; //lcd RS pin
-    int reset; //optional (not yet supported)
+    int dc; //lcd DC pin
+    int reset; //lcd RST pin
 };
 
 /**
